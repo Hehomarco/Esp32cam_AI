@@ -10,7 +10,7 @@ listen_ip = "0.0.0.0" # listen on all interfaces
 
 server = flask.Flask(__name__)
 
-positive_text = None
+
 webhook_url = None
 aws_access_key_id = None
 aws_secret_access_key = None
@@ -26,7 +26,6 @@ try:
         data = json.loads(content)
         print("Running in Home Assistant")
         
-        positive_text = data['positive_text']
         webhook_url = data['webhook_url']
         aws_access_key_id = data['aws_access_key_id']
         aws_secret_access_key = data['aws_secret_access_key']
@@ -35,7 +34,7 @@ except Exception as e:
     sys.exit(1)
 except FileNotFoundError:
     print("Running locally")
-    positive_text = "betriebsbereit"
+    positive_text = "betr"
     webhook_url = "http://localhost:8123/api/webhook/your_webhook_id"
 
 
@@ -80,8 +79,8 @@ def post():
         for block in response['Blocks']: # loop through blocks
             if block['BlockType'] == 'LINE': # if block is a line
                 text = block['Text'] # get text
-                print('Detected: ' + text, "expected: " + positive_text) # print text
-                if positive_text.lower() in text.lower(): # if positive text is in text
+                print('Detected: ' + text) # print text
+               if text.lower().count("betr") > 0: # if positive text is in text
                     return "No alert: " + text, 200
                 else:
                     # Alert has been detected
