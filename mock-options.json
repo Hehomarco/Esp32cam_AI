@@ -1,0 +1,6 @@
+{
+    "aws_access_key_id": "sdf",
+    "aws_secret_access_key": "fsdf",
+    "webhook_url": "localhost/test",
+    "positive_text": "betriebsbereit"
+}

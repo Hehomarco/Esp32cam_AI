@@ -1,0 +1,30 @@
+{
+    "name": "python-image-detection",
+    "version": "0.6",
+    "slug": "python-image-detection",
+    "description": "python-image-detection",
+    "arch": [
+      "armhf",
+      "armv7",
+      "aarch64",
+      "amd64",
+      "i386"
+    ],
+    "startup": "before",
+    "boot": "auto",
+    "options": {
+      "aws_access_key_id": "",
+      "aws_secret_access_key": "",
+      "webhook_url": "",
+      "positive_text": "betriebsbereit"
+    },
+    "schema": {
+      "aws_access_key_id": "str",
+      "aws_secret_access_key": "str",
+      "webhook_url": "str",
+      "positive_text": "str"
+    },
+    "ports": {
+      "8080/tcp": 8080
+    }
+  }
