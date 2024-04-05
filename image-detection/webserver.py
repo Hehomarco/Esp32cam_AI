@@ -80,7 +80,7 @@ def post():
             if block['BlockType'] == 'LINE': # if block is a line
                 text = block['Text'] # get text
                 print('Detected: ' + text) # print text
-               if text.lower().count("betr") > 0: # if positive text is in text
+                if text.lower().count("betr") > 0: # if positive text is in text
                     return "No alert: " + text, 200
                 else:
                     # Alert has been detected
